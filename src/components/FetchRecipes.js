@@ -17,7 +17,7 @@ const FetchRecipeData = ({ query }) => {
   const fetchRecipeData = useCallback(() => {
     const url =
     'https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=' + query;
-    console.log(url);
+    
     const options = {
 	method: 'GET',
 	headers: {
@@ -30,7 +30,7 @@ fetch(url, options)
 	.then(response => response.json())
 	.then((response) => {
 
-    console.log(recipeInfo);
+    
             setRecipeInfo(response);
             
         }

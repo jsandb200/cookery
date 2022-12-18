@@ -20,7 +20,7 @@ const FetchNutritionData = ({ query }) => {
   const fetchNutritionData = useCallback(() => {
     const url =
       "https://calorieninjas.p.rapidapi.com/v1/nutrition?query=" + query;
-    console.log(url);
+    
     const options = {
       method: "GET",
       headers: {
@@ -31,7 +31,7 @@ const FetchNutritionData = ({ query }) => {
     fetch(url, options)
       .then((response) => response.json())
       .then((incomingData) => {
-        console.log(incomingData);
+       
         if (incomingData.items.length !== 0) {
           setNutrition(incomingData.items[0]);
         }

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Ratings from "./Ratings";
-import Wishlist from "./Wishlist";
 
 const click = event => {
 
@@ -61,7 +60,7 @@ const Recipes = ({ recipe }) => {
       
       
       <div className="recipe small">
-        <div className="recipeinfo" onClick={click}><h2>{recipe.title}</h2></div>
+        <div className="recipeinfo" onClick={click} id="recipetitle"><h2>{recipe.title}</h2></div>
         <div className="recipeinfo" onClick={click}>
             <h2>Ingredients:</h2>
             <p>{recipe.ingredients}</p>

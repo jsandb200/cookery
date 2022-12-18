@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FetchNutrition from "./FetchNutrition";
 import FetchRecipes from "./FetchRecipes";
+import { ImSearch } from "react-icons/im";
 
-
-function Search() {
+function Search({selectedMessage}) {
   const [searchString, setSearchString] = useState("");
   const [searchField, setSearchField] = useState("");
   const [isShown, setIsShown] = useState(false);
  
  function handleClick() {
 
-// function I want to call in SideTab.js
 
     setSearchField(searchString);
     setIsShown(true);
 
     }
 
+    
+      
+    
+
+      
+    useEffect(() => {
+      setSearchField(selectedMessage);
+      setIsShown(true);
+
+    }, [selectedMessage]);
+    
 
     
 
@@ -31,7 +41,7 @@ function Search() {
           placeholder="Search ..."
           onChange={(e) => setSearchString(e.target.value)}
         />
-        <button onClick={handleClick}>Search</button>
+        <button onClick={handleClick} id="searchbutton"><ImSearch/></button>
       </div>
 
 

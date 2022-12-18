@@ -7,18 +7,16 @@ function show() {
   if(document.getElementById("nutrition").classList.contains("hide")){
     document.getElementById("nutrition").classList.remove("hide");
     document.getElementById("nutrition").classList.add("show");
-    document.getElementById("nutritionbutton").innerHTML = "----- Hide -----";
   }
   else {
     document.getElementById("nutrition").classList.remove("show");
     document.getElementById("nutrition").classList.add("hide");
-    document.getElementById("nutritionbutton").innerHTML = "----- Show -----";
   }
 }
 
   return (
-    <div id="nutritioncontainer">
-      <h3>Nutritional value for : {item.name}</h3>
+    <div id="nutritioncontainer" onClick={show}>
+      <h3>Show nutritional value ({item.name})</h3>
     <div id="nutrition" className="hide">
       <ul style={{ listStyle: "none" }}>
         <li>Serving size:{item.serving_size_g} g</li>
@@ -34,7 +32,7 @@ function show() {
         <li>Cholesterol per serving:{item.cholesterol_mg}mg</li>
       </ul>
     </div>
-    <button onClick={show} id="nutritionbutton">----- Show -----</button>
+    
     </div>
   );
 };

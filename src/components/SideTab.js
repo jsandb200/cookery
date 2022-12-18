@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import RadioButtons from "./RadioButtons";
-import { handleClick } from "./Search";
+import { VscThreeBars } from "react-icons/vsc";
 
-const SideTab = () => {
+
+const SideTab = ({setMessage}) => {
 
     
 function showsidetab() {
@@ -26,27 +27,62 @@ function showsidetab() {
 
     function handleDisplayVeggie() {
         veggie ? setVeggie(false) : setVeggie(true);
+
         if(veggie === false){
-            let vegg = "Vegetarian";
-           document.getElementById("searchinput").innerHTML = vegg;
-           
-          
+          setGluF(false);
+          setVegan(false);
+          setLowF(false);
 
-// want to call handleClick() function from Search.js here
-// or at least set "query" as "vegg"
 
-          
+          let vegg = "Vegetarian";
+          setMessage(vegg);
+        }
+        else {
+          setMessage("");
         }
         
       }
       function handleDisplayVegan() {
         vegan ? setVegan(false) : setVegan(true);
+        if(vegan === false){
+          setGluF(false);
+          setVeggie(false);
+          setLowF(false);
+          let veg = "Vegan";
+          setMessage(veg);
+        }
+        else {
+          setMessage("");
+        }
+        
       }
       function handleDisplayGluF() {
         gluF ? setGluF(false) : setGluF(true);
+        if(gluF === false){
+          setVeggie(false);
+          setVegan(false);
+          setLowF(false);
+          let gluf = "gluten free";
+          setMessage(gluf);
+        }
+        else {
+          setMessage("");
+        }
+        
       }
       function handleDisplayLowF() {
         lowF ? setLowF(false) : setLowF(true);
+        if(lowF === false){
+          setGluF(false);
+          setVegan(false);
+          setVeggie(false);
+          let lowf = "low fat";
+          setMessage(lowf);
+        }
+        else {
+          setMessage("");
+        }
+        
       }
   
     return (
@@ -54,7 +90,7 @@ function showsidetab() {
       <div id="sides">
         <div id="sidetab" className="slideleft">
           <div id="filters">
-            Filter settings:
+            <h2>Filter settings:</h2>
             <div>
                 <RadioButtons 
                     veggie={veggie}
@@ -69,7 +105,7 @@ function showsidetab() {
             </div>
           </div>
           <div id="wishlist">
-            Wishlist:
+           <h2>Wishlist:</h2> 
              <div id="wishes">
               
              </div>
@@ -78,7 +114,7 @@ function showsidetab() {
 
 
         </div>
-        <div id="showsidetab" onClick={showsidetab}>&equiv;</div>
+        <div id="showsidetab" onClick={showsidetab}><VscThreeBars/></div>
 
 
       </div>
